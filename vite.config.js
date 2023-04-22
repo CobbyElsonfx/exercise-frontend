@@ -6,6 +6,3 @@ export default defineConfig({
   plugins: [react()],
 })
 
-module.exports = {
-  base: '/',
-}
