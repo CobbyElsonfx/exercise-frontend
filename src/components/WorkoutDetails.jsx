@@ -11,7 +11,6 @@ function WorkoutDetails({workout}) {
 
   
   const deleteHandler = async ()=> {
-    console.log(`http://localhost:8585/api/workouts/ ${workout._id}`)
     const response =  await fetch(`http://localhost:8585/api/workouts/${workout._id}` , {
       method: "DELETE",
     })

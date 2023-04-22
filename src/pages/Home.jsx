@@ -24,9 +24,6 @@ useEffect(() => {
             if (response.ok){
              dispatch({type: "SET_WORKOUT" , payload: data})
             }
-       
-        
-   
 }
  fetchWorkout()  
 }, [dispatch])
