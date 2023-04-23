@@ -11,7 +11,7 @@ function WorkoutDetails({workout}) {
 
   
   const deleteHandler = async ()=> {
-    const response =  await fetch(`http://localhost:8585/api/workouts/${workout._id}` , {
+    const response =  await fetch(`https://backend-exercise-tracker-wtnx.onrender.com/api/workouts/${workout._id}` , {
       method: "DELETE",
     })
     const data =  await response.json()
