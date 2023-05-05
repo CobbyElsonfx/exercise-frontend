@@ -8,7 +8,18 @@ function Navbar() {
             <Link  to="/">
                 <h1><img src="../../fitness.svg" alt="" /></h1>
             </Link>
-            <p className=" relative">  <span className="text-md">User</span>  <img className="absolute -top-1 right-10" src="../../user.svg" alt="" /></p>
+            <nav className="flex justify-end space-x-3">
+                <div className="px-10">
+                    <Link to="/login">
+                    Login
+                    </Link>
+                    <Link to="/signup">
+                    Signup
+                    </Link>
+                </div>
+                
+                <p className=" relative">  <span className="text-md">User</span>  <img className="absolute -top-1 right-10" src="../../user.svg" alt="" /></p>
+            </nav>
         </div>
         </header>
         

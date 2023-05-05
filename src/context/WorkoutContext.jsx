@@ -1,5 +1,4 @@
-import {createContext, useReducer}  from "react"
-
+import {createContext, useReducer} from "react"
 
 export const WorkoutContext = createContext()
 
@@ -11,6 +10,7 @@ export const workoutReducer = (state, action) =>{
             return {
                 workouts: action.payload
             }
+        
         case "CREATE_WORKOUT":
             return {
                 // this adds the rest or previous state to the current workout that is been created with the post method to be precise
@@ -21,7 +21,6 @@ export const workoutReducer = (state, action) =>{
             return {
                 workouts : state.workouts.filter(data=> data._id !== action.payload._id)
             }
-    
         default:
             return state;
     }
