@@ -18,7 +18,6 @@ function Home() {
 
 useEffect(() => {
     const fetchWorkout = async ()=>{
-        
             const response = await  fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/workouts")
             const data =  await response.json()
             if (response.ok){
