@@ -35,7 +35,7 @@ function Login() {
                     </div>
                     
                     <Button className="mt-6" fullWidth>
-                    Register
+                        Login
                     </Button>
                     <Typography color="white" className="mt-4 text-center font-normal">
                     Do not have an account?{" "}
