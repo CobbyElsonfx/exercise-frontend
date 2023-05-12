@@ -8,7 +8,7 @@ import {
     Button,
     Typography
   } from "@material-tailwind/react"
-import {useSignup } from "../hooks/useSignup"
+import useSignup  from "../hooks/useSignup"
 import {useAuthContext} from "../hooks/useAuthContext"
 
 function Signup() {
@@ -35,8 +35,13 @@ function Signup() {
                 </Typography>
                 <form  onSubmit={handleSubmit}  className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
                     <div className="mb-4 flex flex-col gap-6">
+                    <span name="usernameError" className="usernameError"></span>
                     <Input name="username" className="text-white" size="lg" label="username"  onChange={(e)=> setUsername(e.target.value)} />
+
+                    <span name="emailError" className="emailError"></span>
                     <Input name="email"  className="text-white" size="lg" label="Email" onChange={(e)=> setEmail(e.target.value)} />
+                    
+                    <span name="passwordError" className="passwordError"></span>
                     <Input name="password"  className="text-white" type="password" size="lg" label="Password" onChange={(e)=> setPassword(e.target.value)} />
                     </div>
                     <Checkbox label={
@@ -62,6 +67,9 @@ function Signup() {
                         Sign In
                     </a>
                     </Typography>
+                    {
+                        error && (<div>{error}</div>)
+                    }
                 </form>
                 </Card>
             </div>
