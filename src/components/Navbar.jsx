@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link  } from "react-router-dom";
 import  {useAuthContext} from "../hooks/useAuthContext"
-import {useLogout} from "../hooks/useLogout"
+import useLogout from "../hooks/useLogout"
 
 function Navbar() {
     const {user} = useAuthContext()
@@ -23,7 +23,8 @@ function Navbar() {
             <nav className="flex justify-end space-x-3">
                 {user && (
                     <div>
-                    <button onClick={handlClick} >Logout</button>
+                    <span>{user.email}</span>
+                    <button onClick={handleClick} >Logout</button>
                     <p className=" relative">  <span className="text-md">User</span>  <img className="absolute -top-1 right-10" src="../../user.svg" alt="" /></p>
                     </div>    
                 )}

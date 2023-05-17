@@ -1,4 +1,5 @@
 import React from 'react'
+import {useState}  from "react"
 import {useAuthContext} from "../hooks/useAuthContext"
 
 function useLogout() {
@@ -8,12 +9,12 @@ function useLogout() {
 
     const logout = () =>{
      localStorage.removeItem("user")
-     //set the user state to null
+     //set the user stat to null
      dispatch({type:"LOGOUT"})
 
     }
 
-    return {logout,error,isLoading}
+    return {logout}
 }
 
 export default useLogout

@@ -1,43 +1,40 @@
-import React from 'react'
-import {useState} from "react"
-//import the authContext to enable us dispatch an action to update the gobal state variable user
+import {React,useState} from 'react'
 import {useAuthContext} from "../hooks/useAuthContext"
 
-export function useSignup() {
-    const [error,setError] = useState(null)
+function useSignup() {
+    const {dispatch}  = useAuthContext()
+    const [error,setError] =  useState(null)
     const [isLoading,setIsLoading] = useState(null)
-    const {dispatch} = useAuthContext()
-    
+  
 
-    const signup = async function(email,password,username){
-        console.log(email,password,username)
+
+    const signup = async (email,password,username) =>{
         setError(null)
-        setIsLoading(true)
-
-        console.log("before posting")
-        const res = await fetch("https//localhost:5050/api/user/signup" , {
+        try {
+            const user = ({email,password,username})
+            const res = await fetch("http://localhost:5050/api/user/signup",{
             method:"POST",
-            headers: {"Content-type":"application/json"},
-            body: JSON.stringify({email,password,username})
-        })
-        console.log(res, "here is theresponse")
+            headers: {"Content-Type":"application/json"},
+            body:JSON.stringify(user)
+              })
+
+            const  data = await res.json()
+            if(res.ok){
+                localStorage.setItem("user",JSON.stringify(data))
+                dispatch({type:"SIGNUP" , payload: data})
+              }
+
+            
+        } catch (error) {
+             setError(error)
+
+        }
     
-        const data = await res.json()
-        console.log(data,"the data")
-    
-        // if(!data.ok){
-        //     setError(data.error)
-        //     setIsLoading(false)
-        // }
-    
-        // if(data.ok){
-        //     //convert to string before storing it in local storage
-        //     localStorage.setItem("user",JSON.stringify({data}))
-        //     dispatch({type:"SIGNUP" , payload: data})
-        // }
+
     }
 
-    return    {error,isLoading,signup} 
-
+    return {error,isLoading,signup}
     
 }
+
+export default useSignup
