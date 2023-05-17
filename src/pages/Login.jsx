@@ -56,7 +56,7 @@ function Login() {
                     </Typography>
 
                     {
-                        error && (<div>{error}</div>)
+                        error && <div>{error}</div>
                     }
                 </form>
 

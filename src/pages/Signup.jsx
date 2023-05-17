@@ -68,7 +68,7 @@ function Signup() {
                     </a>
                     </Typography>
                     {
-                        error && (<div>{error}</div>)
+                     error && <div>{error}</div>
                     }
                 </form>
                 </Card>
