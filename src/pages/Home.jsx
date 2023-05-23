@@ -20,7 +20,7 @@ function Home() {
 useEffect(() => {
     //add authorisation headers to the get request which be used in the backend for authroisation
     const fetchWorkout = async ()=>{
-            const response = await  fetch("http://localhost:5050/api/workouts" , {
+            const response = await  fetch("http://backend-exercise-tracker-wtnx.onrender.com/api/workouts" , {
             headers:{
                 "Authorization":`Bearer ${user.token}`,
             }

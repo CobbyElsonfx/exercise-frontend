@@ -1,9 +1,11 @@
 import {React,useState} from 'react'
 import {useAuthContext} from "../hooks/useAuthContext"
+
 function useLogin() {
-    const {dispatch}  = useAuthContext()
     const [error,setError] =  useState(null)
     const [isLoading,setIsLoading] = useState(null)
+    const {dispatch}  = useAuthContext()
+
     
     const login = async (email,password) => {
         setError(null)
@@ -11,7 +13,7 @@ function useLogin() {
             const user = ({email,password})
             const res = await fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/user/login",{
             method:"POST",
-            headers: {"Content-Type":"application/json",},
+            headers: {"Content-Type":"application/json"},
             body:JSON.stringify(user)
               })
 
