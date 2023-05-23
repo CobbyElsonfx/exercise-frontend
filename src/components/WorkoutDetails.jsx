@@ -35,7 +35,7 @@ function WorkoutDetails({workout}) {
               <p className="text-lightGrayishisBlue"><strong>Load(kg):</strong> {workout.load}</p>
               <p><strong>Reps:</strong> {workout.reps}</p>
             <div className="flex flex-row space-x-1 justify-">
-                <img src="../../public/clock.svg"  className="w-4 h-4 pt-0.5" alt="" />
+                <img src="../../clock.svg"  className="w-4 h-4 pt-0.5" alt="" />
                 <p className=""> {formatDistanceToNow(new Date(workout.createdAt),{addSuffix:true}) }</p>
               </div>
               <span onClick = {deleteHandler}> <img src="../../delete.svg" alt="" /> </span>
