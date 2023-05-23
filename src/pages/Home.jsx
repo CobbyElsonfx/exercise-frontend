@@ -2,7 +2,8 @@ import React from 'react'
 import {useEffect , useState} from "react"
 import WorkoutDetails from "../components/WorkoutDetails"
 import Forms from  "../components/Forms"
-import {useWorkoutContext} from "../hooks/useWorkout"
+import {useWorkoutContext} from "../hooks/useWorkoutContext"
+import {useAuthContext} from "../hooks/useAuthContext"
 
 
 
@@ -11,14 +12,19 @@ import {useWorkoutContext} from "../hooks/useWorkout"
 
 function Home() {
     const {workouts, dispatch} = useWorkoutContext()
-
+    const {user} =  useAuthContext()
 
 //fecth for workouts
 
 
 useEffect(() => {
+    //add authorisation headers to the get request which be used in the backend for authroisation
     const fetchWorkout = async ()=>{
-            const response = await  fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/workouts")
+            const response = await  fetch("http://localhost:5050/api/workouts" , {
+            headers:{
+                "Authorization":`Bearer ${user.token}`,
+            }
+            })
             const data =  await response.json()
             if (response.ok){
              dispatch({type: "SET_WORKOUT" , payload: data})

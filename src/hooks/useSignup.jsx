@@ -12,9 +12,10 @@ function useSignup() {
         setError(null)
         try {
             const user = ({email,password,username})
-            const res = await fetch("http://localhost:5050/api/user/signup",{
+            const res = await fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/user/signup",{
             method:"POST",
-            headers: {"Content-Type":"application/json"},
+            headers: {
+              "Content-Type":"application/json"},
             body:JSON.stringify(user)
               })
 

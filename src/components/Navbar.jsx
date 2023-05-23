@@ -20,20 +20,20 @@ function Navbar() {
             <Link  to="/">
                 <h1><img src="../../fitness.svg" alt="" /></h1>
             </Link>
-            <nav className="flex justify-end space-x-3">
+            <nav className="flex justify-end space-x-3 ">
                 {user && (
-                    <div>
-                    <span>{user.email}</span>
-                    <button onClick={handleClick} >Logout</button>
-                    <p className=" relative">  <span className="text-md">User</span>  <img className="absolute -top-1 right-10" src="../../user.svg" alt="" /></p>
+                    <div className="flex flex-row space-x-3">
+                    <span className="hidden sm:block">{user.email}</span>
+                    <button className="text-white p-2 rounded-md bg-primary  transition ease-in-out duration-0 hover:duration-700  " onClick={handleClick} >Logout</button>
+                    {/* <p className=" relative">  <span className="text-md"></span>  <img className="absolute -top-1 right-10 " src="../../user.svg" alt="" /></p> */}
                     </div>    
                 )}
                 {!user && (
-                    <div className="px-10">
-                    <Link to="/login">
+                    <div className="px-10 space-x-2">
+                    <Link to="/login" className="text-darkGrayishBlue hover:text-veryDarkBlue hover:underline px-1 transition  transition-all ">
                         Login
                     </Link>
-                    <Link to="/signup">
+                    <Link to="/signup" className="text-darkGrayishBlue hidden hover:text-veryDarkBlue transition transition-all">
                         Signup
                     </Link>
                 </div>
