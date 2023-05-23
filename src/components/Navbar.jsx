@@ -33,7 +33,7 @@ function Navbar() {
                     <Link to="/login" className="text-darkGrayishBlue hover:text-veryDarkBlue hover:underline px-1 transition  transition-all ">
                         Login
                     </Link>
-                    <Link to="/signup" className="text-darkGrayishBlue hidden hover:text-veryDarkBlue transition transition-all">
+                    <Link to="/signup" className="text-darkGrayishBlue hover:text-veryDarkBlue transition transition-all">
                         Signup
                     </Link>
                 </div>
