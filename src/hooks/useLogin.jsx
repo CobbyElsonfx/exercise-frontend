@@ -1,9 +1,10 @@
 import {React,useState} from 'react'
 import {useAuthContext} from "../hooks/useAuthContext"
 function useLogin() {
-    const {dispatch}  = useAuthContext()
     const [error,setError] =  useState(null)
     const [isLoading,setIsLoading] = useState(null)
+    const {dispatch}  = useAuthContext()
+
     
     const login = async (email,password) => {
         setError(null)
