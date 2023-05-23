@@ -9,6 +9,13 @@ module.exports =  withMT({
   ],
   theme: {
     extend: {
+      ropShadow: {
+        '3xl': '0 60px 20px rgba(0, 0, 0, 0.25)',
+        '4xl': [
+            '0 45px 45px rgba(255, 255,255, 0.12¯¯)',
+            '0 45px 65px rgba(245, 255, 255, 0.12)'
+        ]
+      },
       colors:{
         primary:"#FF6D0C",
         background:"#111827",

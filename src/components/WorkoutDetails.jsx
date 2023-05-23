@@ -1,5 +1,6 @@
-import React from 'react'
-import {useWorkoutContext} from "../hooks/useWorkout"
+import React from "react"
+import {useWorkoutContext} from "../hooks/useWorkoutContext"
+import {useAuthContext} from "../hooks/useAuthContext"
 
 
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
@@ -8,11 +9,14 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 function WorkoutDetails({workout}) {
   const {dispatch} = useWorkoutContext()
-
+  const {user} = useAuthContext()
   
   const deleteHandler = async ()=> {
-    const response =  await fetch(`https://backend-exercise-tracker-wtnx.onrender.com/api/workouts/${workout._id}` , {
+    const response =  await fetch(`https://backend-exercise-tracker-wtnx.onrender.com/api/workouts/${workout._id}`  , {
       method: "DELETE",
+      headers :{
+        "Authorization":`Bearer ${user.token}`,
+      }
     })
     const data =  await response.json()
 
@@ -21,12 +25,22 @@ function WorkoutDetails({workout}) {
     }
 }
     return (
-        <div className="workout-details md:w-3/4 w-full relative">
-          <h4 className="text-primary font-semibold tracking-wide">{workout.title}</h4>
-          <p><strong>Load(kg):</strong> {workout.load}</p>
-          <p><strong>Reps:</strong> {workout.reps}</p>
-          <p> {formatDistanceToNow(new Date(workout.createdAt),{addSuffix:true}) }</p>
-          <span onClick = {deleteHandler}> <img src="../../delete.svg" alt="" /> </span>
+        <div className="workout-details md:w-3/4 w-full relative bg-background flex flex-row space-x-4 " >
+          <div className="text-center">
+            <div className="bg-primary px-2 w-4 h-4 rounded-full" ></div>
+            <div className="bg-primary  px-1 w-2 sm:h-[70px] rounded-full" ></div>
+          </div>
+          <div>
+              <h4 className="px-1 text-background font-semibold tracking-wide">{workout.title}</h4>
+              <p className="text-lightGrayishisBlue"><strong>Load(kg):</strong> {workout.load}</p>
+              <p><strong>Reps:</strong> {workout.reps}</p>
+            <div className="flex flex-row space-x-1 justify-">
+                <img src="../../public/clock.svg"  className="w-4 h-4 pt-0.5" alt="" />
+                <p className=""> {formatDistanceToNow(new Date(workout.createdAt),{addSuffix:true}) }</p>
+              </div>
+              <span onClick = {deleteHandler}> <img src="../../delete.svg" alt="" /> </span>
+          </div>
+          
         </div>
     )
 }

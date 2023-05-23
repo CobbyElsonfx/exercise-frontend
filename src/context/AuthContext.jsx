@@ -12,7 +12,7 @@ export const authReducer = (state, action) =>{
                 user: action.payload
             }
 
-            case "SIGNUP": 
+        case "SIGNUP": 
             return {
                 user:action.payload
             }
@@ -24,6 +24,7 @@ export const authReducer = (state, action) =>{
     }
         
 }
+//set the global state to the localstorage variable if there is when the  components is loaded
 export const AuthContextProvider = ({children}) =>{  
     
     useEffect(() => {
@@ -33,7 +34,7 @@ export const AuthContextProvider = ({children}) =>{
       }
       
       
-    }, [])
+    },[])
     
     
 

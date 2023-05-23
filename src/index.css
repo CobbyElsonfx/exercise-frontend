@@ -39,7 +39,7 @@ header a {
 
 .workout-details {
   background: #fff;
-  border-radius: 4px;
+  border-top-right-radius: 16px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
@@ -93,4 +93,14 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+
+
+.addWorkoutForm {
+    backdrop-filter: blur(7px) saturate(144%);
+    -webkit-backdrop-filter: blur(7px) saturate(144%);
+    background-color: rgba(17, 17, 31, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
 }

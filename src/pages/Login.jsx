@@ -15,13 +15,13 @@ function Login() {
     const [email, setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [username,setUsername] = useState("")
-    const {login,isLoading,error} = useLogin()
+    const {login,isLoading,error} = useLogin("")
 
 
 
     const handleSubmit = async (ev)=>{
         ev.preventDefault()
-      await login(email,password,username)
+      await login(email,password)
       
     }
 
@@ -48,7 +48,7 @@ function Login() {
                     </Button>
                     <Typography color="white" className="mt-4 text-center font-normal">
                     Do not have an account?{" "}
-                    <a href="#"
+                    <a href="/signup"
                         className="font-medium text-blue-500 transition-colors hover:text-blue-700"
                     >
                     Register
