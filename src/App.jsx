@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {BrowserRouter, Routes, Route ,Navigate} from "react-router-dom"
 import './index.css'
 import  Home  from "./pages/Home"
-import Navbar from "./components/Navbar"
+import ComplexNavbar from "./components/Navbar"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import {useAuthContext} from "./hooks/useAuthContext"
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App bg-background">
       <BrowserRouter>
-       <Navbar/>
+       <ComplexNavbar/>
          <div  className="pages">
           <Routes>
               <Route  path="/"  element ={user ? <Home/> :  <Navigate to= "/login" /> }   />

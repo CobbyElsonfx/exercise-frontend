@@ -10,13 +10,9 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow"
 function WorkoutDetails({workout}) {
   const {dispatch} = useWorkoutContext()
   const {user} = useAuthContext()
-
-
-  const  apiUrl = process.env.REACT_APP_API_URL
-
-
+  
   const deleteHandler = async ()=> {
-    const response =  await fetch(`${apiUrl}/api/workouts/${workout._id}`  , {
+    const response =  await fetch(`http://localhost:5050/api/workouts/${workout._id}`  , {
       method: "DELETE",
       headers :{
         "Authorization":`Bearer ${user.token}`,

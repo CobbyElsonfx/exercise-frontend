@@ -19,11 +19,8 @@ function Home() {
 
 useEffect(() => {
     //add authorisation headers to the get request which be used in the backend for authroisation
-    const  apiUrl = process.env.REACT_APP_API_URL
-
     const fetchWorkout = async ()=>{
-            
-            const response = await  fetch(`${apiUrl}/api/workouts` , {
+            const response = await  fetch("http://localhost:5050/api/workouts" , {
             headers:{
                 "Authorization":`Bearer ${user.token}`,
             }
