@@ -10,9 +10,12 @@ function useSignup() {
 
     const signup = async (email,password,username) =>{
         setError(null)
+        const  apiUrl = process.env.REACT_APP_API_URL
+
+
         try {
             const user = ({email,password,username})
-            const res = await fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/user/signup",{
+            const res = await fetch(`${apiUrl}/api/user/signup`,{
             method:"POST",
             headers: {
               "Content-Type":"application/json"},

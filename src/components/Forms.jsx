@@ -25,9 +25,11 @@ const Forms = () =>{
 
 
     const workout = {title,load,reps}
+    const  apiUrl = process.env.REACT_APP_API_URL
+
     
    // fetch the data from the backend server
-    const response = await fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/workouts" , {
+    const response = await fetch(`${apiUrl}/api/workouts` , {
         method:"POST",
         body: JSON.stringify(workout),
         headers:{

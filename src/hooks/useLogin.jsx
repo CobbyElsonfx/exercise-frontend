@@ -9,9 +9,12 @@ function useLogin() {
     
     const login = async (email,password) => {
         setError(null)
+
+        const  apiUrl = process.env.REACT_APP_API_URL
+
         try {
             const user = ({email,password})
-            const res = await fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/user/login",{
+            const res = await fetch(`${apiUrl}/api/user/login`,{
             method:"POST",
             headers: {"Content-Type":"application/json"},
             body:JSON.stringify(user)
