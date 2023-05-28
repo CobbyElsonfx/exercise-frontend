@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import {BrowserRouter, Routes, Route ,Navigate} from "react-router-dom"
+
 import './index.css'
 import  Home  from "./pages/Home"
 import ComplexNavbar from "./components/Navbar"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
+import UserDashboard from "./pages/UserDashboard"
 import {useAuthContext} from "./hooks/useAuthContext"
+
 
 
 function App() {
@@ -21,6 +24,7 @@ function App() {
               <Route  path="/"  element ={user ? <Home/> :  <Navigate to= "/login" /> }   />
               <Route  path="/login"  element ={!user ? <Login/> : <Navigate to="/"/>} />
               <Route  path="/signup"  element ={!user ? <Signup/> : <Navigate to="/"/>} /> 
+              <Route  path="/myProfile"  element ={user ? <UserDashboard/> : <Navigate to="login"/>} /> 
             </Routes>
           </div>
       </BrowserRouter>

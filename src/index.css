@@ -31,8 +31,9 @@ header a {
 }
 
 .navbar {
-  background: white
-  ;
+  background: white;
+  width:100vw;
+  
 }
 
 

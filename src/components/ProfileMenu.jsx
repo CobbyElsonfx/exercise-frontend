@@ -1,4 +1,6 @@
 import React from 'react'
+import useLogout from "../hooks/useLogout"
+import {useNavigate} from "react-router-dom"
 
 
 import {
@@ -29,20 +31,24 @@ import {
 // profile menu component
 const profileMenuItems = [
   {
-    label: "My Profile",
+    label: "Home",
     icon: UserCircleIcon,
+    path:"/"
   },
   {
-    label: "Edit Profile",
+    label: "My Profile",
     icon: Cog6ToothIcon,
+    path:"/myProfile"
   },
   {
-    label: "Inbox",
+    label: "Exercises",
     icon: InboxArrowDownIcon,
+    path:"/exercises"
   },
   {
     label: "Help",
     icon: LifebuoyIcon,
+    path: "/help"
   },
   {
     label: "Sign Out",
@@ -53,6 +59,16 @@ const profileMenuItems = [
 function ProfileMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const closeMenu = () => setIsMenuOpen(false);
+    const {logout} = useLogout()
+    const navigate =  useNavigate()
+
+    const handleLogout = async ()=>{
+               const res = await logout()
+   
+           }
+    
+      
+    
    
     return (
       <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -77,27 +93,35 @@ function ProfileMenu() {
           </Button>
         </MenuHandler>
         <MenuList className="p-1">
-          {profileMenuItems.map(({ label, icon }, key) => {
+          {profileMenuItems.map(({ label, icon ,path }, key) => {
             const isLastItem = key === profileMenuItems.length - 1;
+
+
+
             return (
               <MenuItem
                 key={label}
-                onClick={closeMenu}
+                //check if the label is equal to sign out then trigger the signup button and the closeMenu funct
+                onClick={()=> {
+                  if(label ===  "Sign Out"){
+                    handleLogout()
+                    closeMenu
+                  }else{
+                    navigate(path)
+                  }
+                }}
                 className={`flex items-center gap-2 rounded ${
                   isLastItem
-                    ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                    : ""
+                    && "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
                 }`}
               >
                 {React.createElement(icon, {
                   className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
                   strokeWidth: 2,
                 })}
-                <Typography
-                  as="span"
-                  variant="small"
-                  className="font-normal"
+                <Typography  as="span"  variant="small" className="font-normal "
                   color={isLastItem ? "red" : "inherit"}
+                  
                 >
                   {label}
                 </Typography>
