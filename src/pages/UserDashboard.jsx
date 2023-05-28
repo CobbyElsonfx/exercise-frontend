@@ -1,5 +1,8 @@
 import React from "react"
 import CustomDayOfWeekFormat from "../components/ BasicDateCalender"
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import {useAuthContext} from "../hooks/useAuthContext"
+
 import {
     Card,
     CardHeader,
@@ -14,6 +17,8 @@ import {
 
 
 function UserDashboard() {
+    const {user} = useAuthContext()
+    console.log("user dashboard", user)
 
 
 
@@ -26,7 +31,7 @@ function UserDashboard() {
                 </CardHeader>
                 <CardBody className="text-center">
                     <Typography variant="h4" color="blue-gray" className="mb-2">
-                    Natalie Paisley
+                    {user.username}
                     </Typography>
                     <Typography color="blue" className="font-medium" textGradient>
                     CEO / Co-Founder
@@ -68,7 +73,8 @@ function UserDashboard() {
                     </Tooltip>
                 </CardFooter>
                 <CustomDayOfWeekFormat/>
-
+                
+                
             </Card>
             </div>
 

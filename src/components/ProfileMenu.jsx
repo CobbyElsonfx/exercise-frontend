@@ -53,6 +53,7 @@ const profileMenuItems = [
   {
     label: "Sign Out",
     icon: PowerIcon,
+    path:"/login"
   },
 ];
 
@@ -105,6 +106,7 @@ function ProfileMenu() {
                 onClick={()=> {
                   if(label ===  "Sign Out"){
                     handleLogout()
+                    navigate(path)
                     closeMenu
                   }else{
                     navigate(path)

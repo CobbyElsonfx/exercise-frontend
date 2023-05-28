@@ -18,9 +18,8 @@ function useLogin() {
               })
 
             const  data = await res.json()
-
+            console.log("from the userLogin", data)
             if(res.ok){
-                console.log("Data for post", data)
                 localStorage.setItem("user",JSON.stringify(data))
                 dispatch({type:"LOGIN" , payload: data})
               }
