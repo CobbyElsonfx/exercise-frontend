@@ -112,3 +112,12 @@ div.error {
     border: 1px solid rgba(255, 255, 255, 0.125);
 
 }
+
+/* calender */
+.custom-day-of-week-format {
+  /* Default font size */
+  font-size: 10px;
+  
+}
+
+
