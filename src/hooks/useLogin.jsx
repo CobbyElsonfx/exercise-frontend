@@ -11,7 +11,7 @@ function useLogin() {
         setError(null)
         try {
             const user = ({email,password})
-            const res = await fetch("http://localhost:5050/api/user/login",{
+            const res = await fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/user/login",{
             method:"POST",
             headers: {"Content-Type":"application/json"},
             body:JSON.stringify(user)
