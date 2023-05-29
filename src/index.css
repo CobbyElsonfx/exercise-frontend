@@ -114,10 +114,11 @@ div.error {
 }
 
 /* calender */
-.custom-day-of-week-format {
-  /* Default font size */
-  font-size: 10px;
-  
+
+@media (min-width: 768px) and (min-height: 480px) {
+  .calendar-wrapper {
+    display:none;
+  }
 }
 
 

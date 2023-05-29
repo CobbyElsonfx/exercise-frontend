@@ -1,19 +1,14 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { TimeClock } from '@mui/x-date-pickers/TimeClock';
 
-export default function CustomDayOfWeekFormat() {
-  const [value, setValue] = React.useState(dayjs('2022-04-17'));
-
+export default function TimeClockAmPm() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateCalendar views={['day']} />
+          <TimeClock defaultValue={dayjs('2022-04-17T15:30')} ampm={false} />
     </LocalizationProvider>
   );
 }
-
-
-

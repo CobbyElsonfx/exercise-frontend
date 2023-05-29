@@ -8,6 +8,13 @@ module.exports =  withMT({
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      sm:"480px",
+      md:"768px",
+      lg:"976px",
+      xl:"1440px"
+
+      },
     extend: {
       ropShadow: {
         '3xl': '0 60px 20px rgba(0, 0, 0, 0.25)',
@@ -16,6 +23,7 @@ module.exports =  withMT({
             '0 45px 65px rgba(245, 255, 255, 0.12)'
         ]
       },
+      
       colors:{
         primary:"#FF6D0C",
         background:"#111827",
