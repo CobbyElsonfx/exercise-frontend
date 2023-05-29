@@ -12,7 +12,7 @@ function WorkoutDetails({workout}) {
   const {user} = useAuthContext()
   
   const deleteHandler = async ()=> {
-    const response =  await fetch(`http://localhost:5050/api/workouts/${workout._id}`  , {
+    const response =  await fetch(`https://backend-exercise-tracker-wtnx.onrender.com/api/workouts/${workout._id}`  , {
       method: "DELETE",
       headers :{
         "Authorization":`Bearer ${user.token}`,
