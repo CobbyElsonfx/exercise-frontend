@@ -6,12 +6,16 @@ import {WorkoutContextProvider} from "./context/WorkoutContext"
 import {AuthContextProvider} from "./context/AuthContext"
 
 
+import { ThemeProvider } from "@material-tailwind/react";
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ThemeProvider>
     <AuthContextProvider>
       <WorkoutContextProvider>
         <App/>
       </WorkoutContextProvider>
-    </AuthContextProvider>  
+    </AuthContextProvider> 
+    </ThemeProvider> 
   </React.StrictMode>,
 )

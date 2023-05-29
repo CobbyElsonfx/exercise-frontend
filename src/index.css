@@ -29,6 +29,14 @@ header a {
   color: #333;
   text-decoration: none;
 }
+
+.navbar {
+  background: white;
+  width:100vw;
+  
+}
+
+
 .pages{
   max-width: 1400px;
   padding: 20px;
@@ -104,3 +112,12 @@ div.error {
     border: 1px solid rgba(255, 255, 255, 0.125);
 
 }
+
+/* calender */
+.custom-day-of-week-format {
+  /* Default font size */
+  font-size: 10px;
+  
+}
+
+
