@@ -28,7 +28,7 @@ const Forms = () =>{
 
     
    // fetch the data from the backend server
-    const response = await fetch("http://localhost:5050/api/workouts" , {
+    const response = await fetch("https://backend-exercise-tracker-wtnx.onrender.com/api/workouts" , {
         method:"POST",
         body: JSON.stringify(workout),
         headers:{
