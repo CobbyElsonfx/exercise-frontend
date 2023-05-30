@@ -48,11 +48,14 @@ function Login() {
                     </Button>
                     <Typography color="white" className="mt-4 text-center font-normal">
                     Do not have an account?{" "}
-                    <a href="/signup"
+                    <Link to="/signup">
+                        <span
                         className="font-medium text-blue-500 transition-colors hover:text-blue-700"
                     >
                     Register
-                    </a>
+                    </span>
+                     </Link>
+                    
                     </Typography>
 
                     {
