@@ -65,7 +65,9 @@ function ComplexNavbar() {
 
           {!user && (
             <Button variant="text"  className="flex items-center gap-2">
-                Sign In  <ArrowLongRightIcon strokeWidth={2} className="h-5 w-5" />
+             <Link to="/login">
+                 Sign In  <ArrowLongRightIcon strokeWidth={2} className="h-5 w-5" />
+              </Link>
             </Button>
           )
           }
